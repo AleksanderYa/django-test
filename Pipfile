@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 django = "==2.0.5"
 mysqlclient = "*"
+sqlalchemy = "*"
+ipython = "*"
+jupyter = "*"
 
 [dev-packages]
 
