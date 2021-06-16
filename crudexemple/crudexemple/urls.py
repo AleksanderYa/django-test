@@ -15,16 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-#from blog import views
+from women.views import pageNotFound
+from . import settings
 
 
 urlpatterns = [
-#    path('', include('blog/views.post_list')),
+    
+
+    path('', include('women.urls')),
     path('lol/', include('blog.urls')),
     path('admin/', admin.site.urls),
+    
+#    path('', include('blog/views.post_list')),
 #    path('show',views.show),  
 #    path('edit/<int:id>', views.edit),  
 #    path('update/<int:id>', views.update),  
 #    path('delete/<int:id>', views.destroy),
     
 ]
+
+handler404 = pageNotFound
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
